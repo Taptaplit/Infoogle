@@ -1,0 +1,44 @@
+body {
+    background: #032100;
+    color: #8f8f8f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.infoogle {
+    font-size: 2.5rem;
+    margin: 10px;
+}
+
+.infoogleDescription {
+    font-size: 1rem;
+}
+
+.searchBar {
+    width: 60vw;
+    height: 4vh;
+    border-radius: 0px 50px 50px 0px;
+    background: #8f8f8f;
+    margin-top: 10px;
+    border: none;
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.searchBar::placeholder {
+    color: green;
+}
+
+.platform {
+    margin-top: 10px;
+    border-right: 2px solid black;
+    width: 20vw;
+    height: 4vh;
+    border-radius: 50px 0px 0px 50px;
+    text-align: center;
+    background: #8f8f8f;
+    color: green;
+    font-size: 1.3rem;
+}

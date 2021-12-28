@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='result.css') }}"
+    />
+    <title>Infoogle</title>
+  </head>
+  <body>
+    <div class="flex">
+      <h1 class="infoogle">Infoogle</h1>
+      <form method="POST" class="flex">
+        <select name="platform" class="platform">
+          <option value="github">Github</option>
+          <option value="stackoverflow">Stack Overflow</option>
+          <option value="stackexchange">Stack Exchange</option>
+          <option value="askubuntu">Ask Ubuntu</option>
+        </select>
+        <input
+          name="username"
+          class="searchBar"
+          type="text"
+          placeholder="Username... (Ex. taptaplit)"
+        />
+      </form>
+    </div>
+    <a href="{{ info['link'] }}" class="infoContainer {{ platform }}">
+      {% if platform == 'github' %}
+        <h1 class="name">{{ info["name"] }}</h1>
+        <img class="avatar" src="{{ info["avatar"] }}" alt=".."/>
+        <p>Followers: {{ info["followers"] }}</p>
+        <p>Following: {{ info["following"] }}</p>
+        <p>Bio: {{ info["bio"] }}</p>
+        <p>Email: {{ info["email"] }}</p>
+      {% endif %}
+    </a>
+    <div class="sourceCode">
+      <a href="https://github.com/taptaplit/infoogle">Source Code</a>
+    </div>
+  </body>
+</html>

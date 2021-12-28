@@ -1,7 +1,8 @@
-import json
+import os
 import requests
 
 base_url = "https://api.github.com"
+headers={'Authorization': os.environ.get('github_token')}
 
 
 class GithubUser:
@@ -9,7 +10,7 @@ class GithubUser:
         self.name = name
 
     def getUserInfo(self):
-        response = requests.get(f"{base_url}/users/{self.name}")
+        response = requests.get(f"{base_url}/users/{self.name}", headers=headers)
         jsonRes = response.json()
         name = jsonRes["name"]
         avatar = jsonRes["avatar_url"]
@@ -23,7 +24,7 @@ class GithubUser:
 
     def getRepos(self):
         repoInfo = []
-        response = requests.get(f"{base_url}/users/{self.name}/repos")
+        response = requests.get(f"{base_url}/users/{self.name}/repos", headers=headers)
         jsonRes = response.json()
         for repo in jsonRes:
             name = repo["name"]
