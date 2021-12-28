@@ -1,71 +1,56 @@
 body {
-    background: #032100;
-    color: #8f8f8f;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  background: #032100;
+  color: #8f8f8f;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .flex {
-    justify-content: flex-start;
-    margin-bottom: 10px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
 .searchBar {
-    width: 40vw;
-    height: 4vh;
-    border-radius: 0px 50px 50px 0px;
-    background: #8f8f8f;
-    border: none;
-    font-size: 1.3rem;
-    padding: 10px;
+  width: 40vw;
+  height: 4vh;
+  border-radius: 0px 50px 50px 0px;
+  background: #8f8f8f;
+  border: none;
+  font-size: 1.3rem;
+  padding: 10px;
 }
 
 .searchBar::placeholder {
-    color: green;
+  color: green;
 }
 
 .platform {
-    border-right: 2px solid black;
-    width: 10vw;
-    height: 4vh;
-    border-radius: 50px 0px 0px 50px;
-    text-align: center;
-    background: #8f8f8f;
-    color: green;
-    font-size: 1.3rem;
-    margin-left: 10px;
+  border-right: 2px solid black;
+  width: 10vw;
+  height: 4vh;
+  border-radius: 50px 0px 0px 50px;
+  text-align: center;
+  background: #8f8f8f;
+  color: green;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+
+.mainContainer {
+  text-decoration: none;
 }
 
 .infoContainer {
-    color: #8f8f8f;
-    margin: 10px;
-    width: 15vw;
-    padding: 30px;
-    height: 87vh;
-    background: green;
-    text-decoration: none;
-}
-
-.github {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.github h1 {
-    font-size: 1.5rem;
-}
-
-.github img {
-    border-radius: 50%;
-    width: 13vw;
-    margin-top: 10px;
-}
-
-.github p {
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 10px;
-    line-height: 16pt;
-    font-size: 1rem;
+  color: #8f8f8f;
+  margin: 10px;
+  width: 15vw;
+  padding: 30px;
+  height: 87vh;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: green;
 }

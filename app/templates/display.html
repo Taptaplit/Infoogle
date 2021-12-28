@@ -12,6 +12,10 @@
       rel="stylesheet"
       href="{{ url_for('static',filename='result.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='github.css') }}"
+    />
     <title>Infoogle</title>
   </head>
   <body>
@@ -32,14 +36,54 @@
         />
       </form>
     </div>
-    <a href="{{ info['link'] }}" class="infoContainer {{ platform }}">
+    <a href="{{ info['link'] }}" class="mainContainer {{ platform }}">
       {% if platform == 'github' %}
-        <h1 class="name">{{ info["name"] }}</h1>
-        <img class="avatar" src="{{ info["avatar"] }}" alt=".."/>
-        <p>Followers: {{ info["followers"] }}</p>
-        <p>Following: {{ info["following"] }}</p>
-        <p>Bio: {{ info["bio"] }}</p>
-        <p>Email: {{ info["email"] }}</p>
+        <div class="infoContainer">
+          <h1 class="name">{{ info["name"] }}</h1>
+          <img class="avatar" src="{{ info["avatar"] }}" alt=".."/>
+          <p>Followers: {{ info["followers"] }}</p>
+          <p>Following: {{ info["following"] }}</p>
+          <p>Bio: {{ info["bio"] }}</p>
+          <p>Email: {{ info["email"] }}</p>
+        </div>
+        <div class="flex" style="flex-direction: column; align-items: flex-start;">
+          <div class="flex">
+            <div class="githubInfoBox">
+              <p><strong>Total Repos</strong></p>
+              <p>{{ repos|length }}</p>
+            </div>
+            <div class="githubInfoBox">
+              <p><strong>Main Languages</strong></p>
+              <p>{{ mainLang }}</p>
+            </div>
+            <div class="githubInfoBox">
+              <p><strong>Total Forks</strong></p>
+              <p>{{ totalForks }}</p>
+            </div>
+            <div class="githubInfoBox">
+              <p><strong>Total Stars</strong></p>
+              <p>{{ totalStars }}</p>
+            </div>
+          </div>
+          <div class="tableContainer">
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Stars</th>
+                <th>Forks</th>
+              </tr>
+              {% for repo in repos %}
+                <tr>
+                  <td><a href="{{ repo["link"] }}">{{ repo["name"] }}</a></td>
+                  <td>{{ repo["language"] }}</td>
+                  <td>{{ repo["stars"] }}</td>
+                  <td>{{ repo["forks"] }}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
       {% endif %}
     </a>
     <div class="sourceCode">

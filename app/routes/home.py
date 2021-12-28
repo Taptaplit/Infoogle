@@ -22,4 +22,16 @@ def getUser():
     if platform == 'github':
         user = external.User.github(username)
         info = user.getUserInfo()
-    return render_template('display.html', platform=platform, info=info)
+        repos = user.getRepos()
+        mainLang = 0
+        stars = 0
+        forks = 0
+        lang = []
+        for repo in repos:
+            if repo["language"] not in lang and repo["language"] != None:
+                lang.append(repo["language"])
+                mainLang += 1
+            stars += repo["stars"]
+            forks += repo["forks"]            
+        return render_template('display.html', platform=platform, info=info, repos=repos, mainLang=mainLang, totalForks=forks, totalStars=stars)
+    return "404"

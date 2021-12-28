@@ -8,11 +8,11 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
 }
 
-h1 {
+.infoogle {
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -23,7 +23,7 @@ h1 {
 }
 
 .sourceCode {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     margin: 10px;

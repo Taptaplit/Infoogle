@@ -1,0 +1,60 @@
+.github {
+  display: flex;
+}
+.github h1 {
+  font-size: 2.5rem;
+}
+
+.github img {
+  border-radius: 50%;
+  width: 13vw;
+  margin-top: 10px;
+}
+
+.github p {
+  margin-top: 10px;
+  line-height: 17pt;
+  font-size: 1.3rem;
+}
+
+.github table {
+  color: #8f8f8f;
+}
+
+.github table {
+  width: 70vw;
+  border-collapse: collapse;
+}
+
+.github td,
+.github th {
+  border: 1px solid rgb(0, 77, 0);
+  text-align: left;
+  padding: 8px;
+}
+
+.github tr:nth-child(even) {
+  background-color: green;
+}
+
+.github a {
+  color: #8f8f8f;
+}
+
+.tableContainer {
+  padding: 30px;
+  background: #043100;
+  border-radius: 50px;
+}
+
+.githubInfoBox {
+  display: flex;
+  flex-direction: column;
+  background: #043100;
+  color: #8f8f8f;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}

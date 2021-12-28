@@ -2,8 +2,7 @@ import os
 import requests
 
 base_url = "https://api.github.com"
-headers={'Authorization': os.environ.get('github_token')}
-
+headers={'Authorization': f"token {os.environ.get('github_token')}"}
 
 class GithubUser:
     def __init__(self, name):
