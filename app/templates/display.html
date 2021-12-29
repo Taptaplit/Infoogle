@@ -86,7 +86,7 @@
         </div>
       </a>
     {% endif %}
-    {% if platform == 'stackoverflow' %}
+    {% if platform == 'stackoverflow' or platform == 'askubuntu' or platform == 'stackexchange' %}
       {% for user in info %}
         <a href="{{ user['link'] }}" class="mainContainer {{ platform }}">
           <div class="infoContainer">
@@ -108,7 +108,7 @@
                   <th>Score</th>
                 </tr>
                 {% for answer in questions['answers'] %}
-                  {% if answer['owner'] == user["name"] %}
+                  {% if answer['owner_id'] == user["id"] %}
                     <tr>
                       <td>{{ answer['owner'] }}</td>
                       <td>{{ answer['accepted'] }}</td>
@@ -129,7 +129,7 @@
                   <th>Tags</th>
                 </tr>
                 {% for question in questions['questions'] %}
-                  {% if question['owner'] == user["name"] %}
+                  {% if question['owner_id'] == user["id"] %}
                     <tr>
                       <td>{{ question['owner'] }}</td>
                       <td><a href="{{ question["link"] }}">{{ question["title"] }}</a></td>
