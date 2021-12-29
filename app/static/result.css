@@ -39,6 +39,8 @@ body {
 
 .mainContainer {
   text-decoration: none;
+  display: flex;
+  color: #8f8f8f;
 }
 
 .infoContainer {
@@ -53,4 +55,42 @@ body {
   justify-content: center;
   flex-direction: column;
   background: green;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 13vw;
+  margin-top: 10px;
+}
+
+.infoContainer p {
+  margin-top: 10px;
+  line-height: 17pt;
+  font-size: 1.3rem;
+}
+
+.mainContainer table {
+  border-collapse: collapse;
+}
+
+.mainContainer td,
+.mainContainer th {
+  border: 1px solid rgb(0, 77, 0);
+  text-align: left;
+  padding: 8px;
+}
+
+.mainContainer tr:nth-child(even) {
+  background-color: green;
+}
+
+.mainContainer a {
+  color: #8f8f8f;
+}
+
+.tableContainer {
+  padding: 30px;
+  background: #043100;
+  border-radius: 50px;
+  margin: 10px;
 }

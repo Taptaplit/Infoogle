@@ -34,4 +34,10 @@ def getUser():
             stars += repo["stars"]
             forks += repo["forks"]            
         return render_template('display.html', platform=platform, info=info, repos=repos, mainLang=mainLang, totalForks=forks, totalStars=stars)
+    elif platform == "stackoverflow" or platform == "askubuntu" or platform == "stackexchange":
+        user = external.User.stackapps(platform, username)
+        info = user.getUserInfo()
+        questions = user.getQuestions()
+        return render_template('display.html', platform=platform, info=info, questions=questions)
+        
     return "404"

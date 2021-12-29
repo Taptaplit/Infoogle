@@ -36,8 +36,8 @@
         />
       </form>
     </div>
-    <a href="{{ info['link'] }}" class="mainContainer {{ platform }}">
-      {% if platform == 'github' %}
+    {% if platform == 'github' %}
+      <a href="{{ info['link'] }}" class="mainContainer {{ platform }}">
         <div class="infoContainer">
           <h1 class="name">{{ info["name"] }}</h1>
           <img class="avatar" src="{{ info["avatar"] }}" alt=".."/>
@@ -84,8 +84,73 @@
             </table>
           </div>
         </div>
-      {% endif %}
-    </a>
+      </a>
+    {% endif %}
+    {% if platform == 'stackoverflow' %}
+      {% for user in info %}
+        <a href="{{ user['link'] }}" class="mainContainer {{ platform }}">
+          <div class="infoContainer">
+            <h1 class="name">{{ user["name"] }}</h1>
+            <img class="avatar" src="{{ user["avatar"] }}" alt=".."/>
+            <p>Reputation: {{ user["reputation"] }}</p>
+            <p>Location: {{ user["location"] }}</p>
+            {% for badge in user["badges"] %}
+              <p>{{ badge[0]|upper }}{{ badge[1:] }}: {{ user["badges"][badge] }}</p>
+            {% endfor %}
+          </div>
+          <div class="flex" style="flex-direction: column; align-items: flex-start;">
+            <div class="tableContainer">
+              <p style="font-size: 1.5rem;"><strong>Answered</strong></p>
+              <table>
+                <tr>
+                  <th>Owner</th>
+                  <th>Accepted</th>
+                  <th>Score</th>
+                </tr>
+                {% for answer in questions['answers'] %}
+                  {% if answer['owner'] == user["name"] %}
+                    <tr>
+                      <td>{{ answer['owner'] }}</td>
+                      <td>{{ answer['accepted'] }}</td>
+                      <td>{{ answer['score'] }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              </table>
+            </div>
+            <div class="tableContainer">
+              <p style="font-size: 1.5rem;"><strong>Questions</strong></p>
+              <table>
+                <tr>
+                  <th>Owner</th>
+                  <th>Title</th>
+                  <th>Answered</th>
+                  <th>Score</th>
+                  <th>Tags</th>
+                </tr>
+                {% for question in questions['questions'] %}
+                  {% if question['owner'] == user["name"] %}
+                    <tr>
+                      <td>{{ question['owner'] }}</td>
+                      <td><a href="{{ question["link"] }}">{{ question["title"] }}</a></td>
+                      <td>{{ question['answered'] }}</td>
+                      <td>{{ question['score'] }}</td>
+                      <td>
+                        <p>
+                          {% for tag in question['tags'] %}
+                            #{{ tag }}
+                          {% endfor %}
+                        </p>
+                      </td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    {% endif %}
     <div class="sourceCode">
       <a href="https://github.com/taptaplit/infoogle">Source Code</a>
     </div>

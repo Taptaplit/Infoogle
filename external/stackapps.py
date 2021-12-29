@@ -43,3 +43,4 @@ class StackUser():
                 link = question["link"]
                 questions.append({'owner': owner, 'score': score, 'answered': answered, 'tags': tags, 'title': title, 'link': link})
         return {'answers': answers, 'questions': questions}
+    
