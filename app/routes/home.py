@@ -39,5 +39,9 @@ def getUser():
         info = user.getUserInfo()
         questions = user.getQuestions()
         return render_template('display.html', platform=platform, info=info, questions=questions)
-        
+    elif platform == "twitter":
+        user = external.User.twitter(username)
+        info = user.getUserInfo()
+        tweets = user.getTweets()
+        return render_template('display.html', platform=platform, user=info, tweets=tweets)
     return "404"

@@ -27,6 +27,7 @@
           <option value="stackoverflow">Stack Overflow</option>
           <option value="stackexchange">Stack Exchange</option>
           <option value="askubuntu">Ask Ubuntu</option>
+          <option value="twitter">Twitter</option>
         </select>
         <input
           name="username"
@@ -150,6 +151,29 @@
           </div>
         </a>
       {% endfor %}
+    {% endif %}
+    {% if platform == 'twitter' %}
+      <a href="https://twitter.com/{{ user['username'] }}" class="mainContainer {{ platform }}">
+        <div class="infoContainer">
+          <h1 class="name">{{ user["name"] }}<p style="color: grey;">@{{ user["username"] }}</p></h1>
+          <img class="avatar" src="{{ user["avatar"] }}" alt=".."/>
+          <p>Followers: {{ user["followers"] }}</p>
+          <p>Following: {{ user["following"] }}</p>
+          <p>Bio: {{ user["bio"] }}</p>
+          <p>Location: {{ user["location"] }}</p>
+          <p>Verified: {{ user["verified"] }}</p>
+          <p>Total Tweets: {{ user["tweets"] }}</p>
+        </div>
+        <div class="flex" style="flex-direction: column; align-items: flex-start;">
+          <div class="flex" style="flex-wrap: wrap;">
+            {% for tweet in tweets %}
+              <div class="tweetContainer">
+                <p>{{ tweet["text"] }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </a>
     {% endif %}
     <div class="sourceCode">
       <a href="https://github.com/taptaplit/infoogle">Source Code</a>

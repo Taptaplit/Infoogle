@@ -14,16 +14,17 @@ class StackUser():
         users = []
         response = requests.get(f"{base_url}/2.3/users?order=desc&sort=reputation&inname={self.user}&site={self.app}&key={key}")
         jsonRes = response.json()
-        for user in jsonRes["items"]:
-            self.user_id.append(user["user_id"])
-            name = user['display_name']
-            badges = user['badge_counts']
-            reputation = user['reputation']
-            location = user.get('location', '')
-            link = user['link']
-            avatar = user['profile_image']
-            id = user['user_id']
-            users.append({'name': name, 'badges': badges, 'reputation': reputation, 'location': location, 'link': link, 'avatar': avatar, 'id': id})
+        if jsonRes.get('items', '') != '':
+            for user in jsonRes["items"]:
+                self.user_id.append(user["user_id"])
+                name = user['display_name']
+                badges = user['badge_counts']
+                reputation = user['reputation']
+                location = user.get('location', '')
+                link = user['link']
+                avatar = user['profile_image']
+                id = user['user_id']
+                users.append({'name': name, 'badges': badges, 'reputation': reputation, 'location': location, 'link': link, 'avatar': avatar, 'id': id})
         return users
 
     def getQuestions(self):
