@@ -59,7 +59,7 @@ def getUser():
             stars += repo["stars"]
             forks += repo["forks"]            
         return render_template('display.html', platform=platform, info=info, repos=repos, mainLang=mainLang, totalForks=forks, totalStars=stars)
-    elif platform == "stackoverflow" or platform == "askubuntu" or platform == "stackexchange":
+    elif platform == "stackoverflow" or platform == "askubuntu" or platform == "stackexchange" or platform == "mathematics":
         user = external.User.stackapps(platform, username)
         info = user.getUserInfo()
         questions = user.getQuestions()

@@ -27,7 +27,8 @@
           <option value="stackoverflow">Stack Overflow</option>
           <option value="stackexchange">Stack Exchange</option>
           <option value="askubuntu">Ask Ubuntu</option>
-          <option value="twitter">Twitter</option>
+          <option value="askubuntu">Ask Ubuntu</option>
+          <option value="mathematics">Mathematics</option>
         </select>
         <input
           name="username"
@@ -87,7 +88,7 @@
         </div>
       </a>
     {% endif %}
-    {% if platform == 'stackoverflow' or platform == 'askubuntu' or platform == 'stackexchange' %}
+    {% if platform == 'stackoverflow' or platform == 'askubuntu' or platform == 'stackexchange' or platform == 'mathematics'%}
       {% for user in info %}
         <a href="{{ user['link'] }}" class="mainContainer {{ platform }}">
           <div class="infoContainer">
